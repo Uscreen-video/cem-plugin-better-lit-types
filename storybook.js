@@ -55,7 +55,6 @@ export const getItemProps = (item, key) => {
   if (!isAttribute && item.privacy !== 'public') return
 
   return {
-    item: item,
     name: item.name,
     required: false,
     description: item.description,
