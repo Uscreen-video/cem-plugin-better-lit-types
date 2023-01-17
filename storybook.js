@@ -41,12 +41,14 @@ export const getItemProps = (item, key) => {
   if (key === 'slots') return {
     name: item.name || 'default',
     required: false,
+    type: 'text',
     description: item.description,
+    defaultValue: '',
     control: {
       type: 'text'
     },
     table: {
-      category: 'slots'
+      category: 'slots',
     },
   }
   if (item.privacy === 'private') return
