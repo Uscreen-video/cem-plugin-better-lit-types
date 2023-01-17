@@ -3,7 +3,6 @@ import path from 'path'
 import process from 'process'
 import ts from 'typescript'
 
-let program;
 const unhandledFunctions = []
 
 const warn = console.warn
@@ -56,7 +55,7 @@ const createGenerator = (manifest) => {
   const files = manifest.modules.map((m) => path.resolve(cwd, m.path))
   const { config } = ts.parseConfigFileTextToJson(configFile, raw)
 
-  program = program || TJS.getProgramFromFiles(files, config.compilerOptions, cwd);
+  const program = TJS.getProgramFromFiles(files, config.compilerOptions, cwd);
 
   return TJS.buildGenerator(program, {
     ignoreErrors: true,
