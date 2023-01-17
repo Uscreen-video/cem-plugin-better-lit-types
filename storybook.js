@@ -38,11 +38,21 @@ export const getType = (item) => {
 export const getItemProps = (item, key) => {
   const type = getType(item)
   const isAttribute = key === 'attributes'
+  if (key === 'slots') return {
+    name: item.name || 'default',
+    required: false,
+    description: item.description,
+    control: {
+      type: 'text'
+    },
+    table: {
+      category: 'slots'
+    },
+  }
   if (item.privacy === 'private') return
   if (item.kind === 'method') {
     if (item.privacy !== 'public') return
     return {
-      item: item,
       name: item.name,
       required: false,
       description: item.description,
@@ -70,18 +80,22 @@ export const getItemProps = (item, key) => {
   }
 }
 
-export const reduceProps = (arr, key) => arr.reduce((acc, item) => {
-  const itemProps = getItemProps(item, key)
-  if (!itemProps) return acc
-  acc[item.name] = itemProps
-  return acc
-}, {})
+export const reduceProps = (arr, key) => {
+  if (!arr?.length) return
+  return arr.reduce((acc, item) => {
+    const itemProps = getItemProps(item, key)
+    if (!itemProps) return acc
+    acc[item.name || key === 'slots' && 'slot'] = itemProps
+    return acc
+  }, {})
+}
 
 export const createArgsExtractor = manifest => componentName => {
   const declaration = getDeclaration(manifest, componentName)
   if (!declaration) return
   return {
     ...reduceProps(declaration.attributes, 'attributes'),
-    ...reduceProps(declaration.members, 'properties')
+    ...reduceProps(declaration.members, 'properties'),
+    ...reduceProps(declaration.slots, 'slots')
   }
 }
