@@ -37,7 +37,7 @@ Add default setup for web-components in you `preview.js`
 ```javascript
 import { setCustomElementsManifest } from '@storybook/web-components'
 import customElements from '../custom-elements.json'
-import { createArgsExtractor } from 'cem-plugin-better-lit-types/storybook'
+import { createArgsExtractor, createLitRenderer } from 'cem-plugin-better-lit-types/storybook'
 ```
 
 Use extractor in your `parameters.docs` section
@@ -47,6 +47,14 @@ export const parameters = {
     extractArgTypes: createArgsExtractor(customElements)
   }
 }
+
+/**
+ * Custom renderer made specially for LitComponents  
+ */
+export const render = createLitRenderer({
+  wrapSlots: true, // Wraps a non-default slot in `<span slot="name">`
+  joinArray: true  // Converts array to a comma-separated string
+})
 ```
 <br /><br /><br />
 

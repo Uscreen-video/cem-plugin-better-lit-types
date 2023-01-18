@@ -1,6 +1,6 @@
 {
   "name": "cem-plugin-better-lit-types",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Updates CEM definitions with Typescript Schema",
   "main": "plugin.js",
   "type": "module",
@@ -25,11 +25,12 @@
   "license": "ISC",
   "optionalDependencies": {
     "typescript": "^4.9.4",
-    "typescript-json-schema": "^0.55.0"
+    "typescript-json-schema": "^0.55.0",
+    "lit": "^2.6.1",
+    "@open-wc/lit-helpers": "0.5.1"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.6.8",
-    "lit": "^2.6.1",
     "lit-html": "^2.6.1"
   }
 }
