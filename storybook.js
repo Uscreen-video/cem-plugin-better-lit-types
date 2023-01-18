@@ -132,8 +132,7 @@ const getAttrsAndSlots = (props, types, { wrapSlots }) => {
   return [attributes, slots]
 }
 
-export const createLitRenderer = (_settings) = (props, options) => {
-  const setting = _settings || {}
+export const createLitRenderer = (settings = {}) => (props, options) => {
   const tag = unsafeStatic(options.component)
   const [attributes, slots] = getAttrsAndSlots(props, options.argTypes, settings)
   return html`<${tag} ${spread(attributes, settings)}>${unsafeStatic(slots)}</${tag}>`
