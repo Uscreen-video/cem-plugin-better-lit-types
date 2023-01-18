@@ -1,15 +1,20 @@
 {
   "name": "cem-plugin-better-lit-types",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Updates CEM definitions with Typescript Schema",
-  "main": "plugin.js",
+  "main": "dist/plugin.js",
   "type": "module",
   "exports": {
-    ".": "./plugin.js",
-    "./storybook": "./storybook.js"
+    ".": "./dist/plugin.js",
+    "./storybook": "./dist/storybook.js"
   },
+  "files": [
+    "dist"
+  ],
+  "types": "dist",
   "scripts": {
-    "analyze": "custom-elements-manifest analyze"
+    "analyze": "custom-elements-manifest analyze",
+    "build": "tsc --declaration"
   },
   "keywords": [
     "custom-element-manifest",
@@ -24,12 +29,13 @@
   "homepage": "https://github.com/Uscreen-video/cem-plugin-better-lit-types#readme",
   "license": "ISC",
   "optionalDependencies": {
-    "typescript": "^4.9.4",
-    "typescript-json-schema": "^0.55.0",
+    "@open-wc/lit-helpers": "0.5.1",
     "lit": "^2.6.1",
-    "@open-wc/lit-helpers": "0.5.1"
+    "typescript": "^4.9.4",
+    "typescript-json-schema": "^0.55.0"
   },
   "devDependencies": {
+    "@types/node": "^18.11.18",
     "@custom-elements-manifest/analyzer": "^0.6.8",
     "lit-html": "^2.6.1"
   }

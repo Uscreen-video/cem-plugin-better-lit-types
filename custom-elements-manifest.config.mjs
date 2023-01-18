@@ -1,4 +1,4 @@
-import plugin from './plugin.js'
+import plugin from './dist/plugin.js'
 
 export default {
   globs: ['mock/component.ts'],

@@ -3,10 +3,14 @@ lockfileVersion: 5.4
 specifiers:
   '@custom-elements-manifest/analyzer': ^0.6.8
   '@open-wc/lit-helpers': 0.5.1
+  '@types/node': ^18.11.18
   lit: ^2.6.1
   lit-html: ^2.6.1
   typescript: ^4.9.4
   typescript-json-schema: ^0.55.0
+
+dependencies:
+  '@types/node': 18.11.18
 
 optionalDependencies:
   '@open-wc/lit-helpers': 0.5.1_lit@2.6.1
@@ -144,6 +148,10 @@ packages:
     resolution: {integrity: sha512-3oJbGBUWuS6ahSnEq1eN2XrCyf4YsWI8OyCvo7c64zQJNplk3mO84t53o8lfTk+2ji59g5ycfc6qQ3fdHliHuA==}
     dev: false
     optional: true
+
+  /@types/node/18.11.18:
+    resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
+    dev: false
 
   /@types/trusted-types/2.0.2:
     resolution: {integrity: sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==}
