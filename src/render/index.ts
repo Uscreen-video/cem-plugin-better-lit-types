@@ -21,8 +21,8 @@ const makeAttrs = (args: any, { joinArrays }: Settings) => {
   return spread(Object.keys(args).reduce<Record<string, any>>((acc, key) => {
     const element = args[key]
     const isArray = Array.isArray(element)
-    const prefix = !joinArrays && isArray ? '' : getPrefix(element)
-    acc[prefix + key] = !joinArrays && isArray ? element.join(',') : element
+    const prefix = joinArrays && isArray ? '' : getPrefix(element)
+    acc[prefix + key] = joinArrays && isArray ? element.join(',') : element
     return acc
   }, {}))
 }
