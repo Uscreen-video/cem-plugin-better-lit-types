@@ -33,7 +33,7 @@ const getAttrsAndSlots = (props: any, types: any, { wrapSlots }: Settings): [Rec
   return [attributes, slots]
 }
 
-export const spread = (args: any, { joinArrays }: Settings) => {
+export const spread = (args: any, { joinArrays }: Settings = {}) => {
   return _spread(Object.keys(args).reduce<Record<string, any>>((acc, key) => {
     const element = args[key]
     const isArray = Array.isArray(element)
