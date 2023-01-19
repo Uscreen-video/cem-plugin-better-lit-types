@@ -12,7 +12,11 @@ export const reduceTypes = (
   return arr.reduce((acc, type) => {
     const itemProps = mapArgs(convertToArgs(type, key))
     if (!itemProps) return acc
-    acc[itemProps.name] = itemProps
+    const name = key === FIELD.slots && itemProps.name === 'default'
+      ? 'slot'
+      : itemProps.name
+
+    acc[name] = itemProps
     return acc
   }, {})
 }
@@ -32,7 +36,6 @@ export const getComponentDeclaration = (manifest: any, tagName: string) => {
 export const createArgsExtractor = (manifest: any, mapArgs?: typeof defaultMapper) => (componentName: string) => {
   const declaration: any = getComponentDeclaration(manifest, componentName)
   if (!declaration) return
-  console.log(manifest)
   return {
     ...reduceTypes(declaration.attributes, FIELD.attributes, mapArgs),
     ...reduceTypes(declaration.members, FIELD.properties, mapArgs),

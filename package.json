@@ -1,6 +1,6 @@
 {
   "name": "cem-plugin-better-lit-types",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Updates CEM definitions with Typescript Schema",
   "main": "dist/plugin.js",
   "type": "module",
@@ -11,7 +11,6 @@
   "files": [
     "dist"
   ],
-  "types": "dist",
   "scripts": {
     "analyze": "custom-elements-manifest analyze",
     "build": "tsc --declaration"
