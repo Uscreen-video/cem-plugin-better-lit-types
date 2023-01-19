@@ -19,7 +19,7 @@ const makeControls = (item: any, field: FIELD) => {
     }
   }
   if (item.type === 'array') {
-    if (item.items) return {
+    if (item.items?.enum) return {
       options: item.items?.enum,
       control: {
         type: 'multi-select',
