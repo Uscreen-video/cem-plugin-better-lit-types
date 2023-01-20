@@ -25,9 +25,18 @@ console.warn = (...msg) => {
   return warn(...msg)
 }
 
+const getReferenceType = (type: any, symbol: any) => {
+  const typeName = type.$ref.split('/')[2]
+  if (/HTML(.*)Element/.test(type.$ref)) return
+  return symbol.definitions[typeName]
+}
+
 const mergeRefs = (type: any, symbol: any) => {
+  Object.keys(type).forEach(k => {
+    if (type[k].$ref) type[k] = getReferenceType(type[k], symbol)
+  })
   if (!type.$ref) return type
-  const source = symbol.definitions[type.$ref.split('/')[2]]
+  const source = getReferenceType(type, symbol)
   return { ...type, ...source, $ref: undefined }
 }
 

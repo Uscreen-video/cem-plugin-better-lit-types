@@ -38,6 +38,11 @@ export class TestComponent extends LitElement {
   prop3: string = 'foo'
 
   /**
+   * This prop have to be ignored
+   */
+  prop4: HTMLAreaElement
+
+  /**
    * This method will be set to `members` with kind "method"
    */
   method1 = (a: string, b: string) => {

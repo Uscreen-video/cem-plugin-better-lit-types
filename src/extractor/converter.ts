@@ -14,6 +14,7 @@ const makeControls = (item: any, field: FIELD) => {
     }
   }
   if (item.type === 'object') return {
+    description: createObjectDescription(item.description, item.properties),
     control: {
       type: 'object',
     }
@@ -56,6 +57,31 @@ const makeControls = (item: any, field: FIELD) => {
   return {
     type: item.type
   }
+}
+
+const wrapDescription = (description: string, typeDesc: string) => {
+  return `
+${description || ''}
+<details>
+  <summary>*Object properties*</summary>
+  <ul>
+  ${typeDesc}
+  </ul>
+</details>
+  `
+}
+
+const createObjectDescription = (description: string, obj: any) => {
+  if (!obj) return description || undefined
+  const typeDesc = Object.keys(obj).map(key => `
+    <li>
+      <details>
+        <summary>${key}: \`${obj[key].type || 'object'}\`</summary>
+        ${obj[key].description}
+      </details>
+    </li>
+  `).join('\n')
+  return wrapDescription(description, typeDesc)
 }
 
 const getTableFields = (item: any, field: FIELD) => {
