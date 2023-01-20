@@ -113,8 +113,8 @@ export const convertToArgs = (type: any, field: FIELD) => {
 
   const res = {
     type: 'text',
-    ...makeControls(type, field),
     ...makeDefaultFields(type, field),
+    ...makeControls(type, field),
     table: getTableFields(type, field)
   }
   return res
