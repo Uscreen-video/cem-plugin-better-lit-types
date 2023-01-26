@@ -2,6 +2,14 @@ import { FIELD } from "./types"
 
 const makeControls = (item: any, field: FIELD) => {
   if (field === FIELD.methods) return undefined
+  if (field === FIELD.css) return {
+    name: item.name,
+    description: item.description || undefined,
+    default: item.default,
+    control: {
+      type: 'text',
+    },
+  }
   if (field === FIELD.slots) return {
     control: {
       type: 'text',
@@ -103,7 +111,7 @@ const makeDefaultFields = ({ name, description }: any, field: FIELD) => ({
 
 const isIgnored = ({ privacy, kind }: any, field: FIELD) => {
   if (privacy === 'private') return true
-  if (field === FIELD.slots) return false
+  if (field === FIELD.slots || field === FIELD.css) return false
   if (privacy !== 'public' && (kind === 'method' || field !== 'attributes')) return true
   return false
 }

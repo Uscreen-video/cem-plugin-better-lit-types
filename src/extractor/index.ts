@@ -39,6 +39,7 @@ export const createArgsExtractor = (manifest: any, mapArgs?: typeof defaultMappe
   return {
     ...reduceTypes(declaration.attributes, FIELD.attributes, mapArgs),
     ...reduceTypes(declaration.members, FIELD.properties, mapArgs),
-    ...reduceTypes(declaration.slots, FIELD.slots, mapArgs)
+    ...reduceTypes(declaration.slots, FIELD.slots, mapArgs),
+    ...reduceTypes(declaration.cssProperties, FIELD.css, mapArgs)
   }
 }
