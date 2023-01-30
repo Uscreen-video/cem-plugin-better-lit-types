@@ -33,9 +33,11 @@ const getReferenceType = (type: any, symbol: any) => {
 
 const mergeRefs = (type: any, symbol: any) => {
   Object.keys(type).forEach(k => {
-    if (type[k].$ref) type[k] = getReferenceType(type[k], symbol)
+    if (type[k]?.$ref) {
+      type[k] = getReferenceType(type[k], symbol)
+    }
   })
-  if (!type.$ref) return type
+  if (!type?.$ref) return type
   const source = getReferenceType(type, symbol)
   return { ...type, ...source, $ref: undefined }
 }
