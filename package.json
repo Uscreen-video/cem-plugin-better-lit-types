@@ -1,13 +1,15 @@
 {
   "name": "cem-plugin-better-lit-types",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "Updates CEM definitions with Typescript Schema",
   "main": "dist/plugin.js",
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
     "./plugin": "./dist/plugin.js",
-    "./storybook": "./dist/storybook.js"
+    "./plugin.d.ts": "./dist/plugin.d.ts",
+    "./storybook": "./dist/storybook.js",
+    "./storybook.d.ts": "./dist/storybook.d.ts"
   },
   "types": "./dist/index.d.ts",
   "files": [

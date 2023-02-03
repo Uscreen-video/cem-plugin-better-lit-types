@@ -25,7 +25,9 @@ const getAttrsAndSlots = (props: any, types: any, { wrapSlots }: Settings): [Rec
     if (types[key]?.table?.category === 'slots') {
      slots += !wrapSlots || key === 'slot'
         ? props[key]
-        : `<tmp-component slot="${key}">${props[key]}</tmp-component>`
+        : props[key].startsWith('<')
+         ? props[key].replace(/(>|\/>)/, ` slot="${key}">`)
+         : `<span slot="${key}">${props[key]}</span>`
     } else {
       attributes[key] = props[key]
     }
