@@ -15,10 +15,10 @@ npm install -D cem-plugin-better-lit-types
 ```
 Create or add to existing `custom-elements-manifest.config.mjs` following lines:
 ```javascript
-import BetterTypesPlugin from 'cem-plugin-better-lit-types';
+import BetterLitTypesPlugin from 'cem-plugin-better-lit-types';
 
 export default {
-  plugins: [BetterTypesPlugin]
+  plugins: [BetterLitTypesPlugin]
 }
 ```
 <br />
