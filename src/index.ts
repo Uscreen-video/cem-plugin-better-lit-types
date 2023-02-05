@@ -1,3 +1,3 @@
-export * from './plugin'
-export * from './storybook'
-export { betterLitTypes as default } from './plugin'
+export * from './plugin.js'
+export * from './storybook.js'
+export { betterLitTypes as default } from './plugin.js'

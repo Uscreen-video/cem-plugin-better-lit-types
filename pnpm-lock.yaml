@@ -9,9 +9,6 @@ specifiers:
   typescript: ^4.9.4
   typescript-json-schema: ^0.55.0
 
-dependencies:
-  '@types/node': 18.11.18
-
 optionalDependencies:
   '@open-wc/lit-helpers': 0.5.1_lit@2.6.1
   lit: 2.6.1
@@ -20,6 +17,7 @@ optionalDependencies:
 
 devDependencies:
   '@custom-elements-manifest/analyzer': 0.6.8
+  '@types/node': 18.11.18
   lit-html: 2.6.1
 
 packages:
@@ -151,7 +149,7 @@ packages:
 
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
-    dev: false
+    dev: true
 
   /@types/trusted-types/2.0.2:
     resolution: {integrity: sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==}

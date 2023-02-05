@@ -1,6 +1,6 @@
 
-import { convertToArgs } from './converter'
-import { FIELD } from './types'
+import { convertToArgs } from './converter.js'
+import { FIELD } from './types.js'
 
 const defaultMapper = (i: any) => i
 

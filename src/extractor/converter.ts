@@ -1,4 +1,4 @@
-import { FIELD } from "./types"
+import { FIELD } from "./types.js"
 
 const makeControls = (item: any, field: FIELD) => {
   if (field === FIELD.methods) return undefined
