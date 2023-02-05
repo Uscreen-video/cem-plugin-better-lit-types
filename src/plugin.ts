@@ -83,7 +83,7 @@ const createGenerator = (manifest: any) => {
 /**
  * Creates better types for LitElement
  */
-export default {
+export const plugin = {
   name: 'BETTER TYPES',
   packageLinkPhase({ customElementsManifest }: { customElementsManifest: any }) {
     const generator = createGenerator(customElementsManifest)
