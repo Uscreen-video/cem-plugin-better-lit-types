@@ -53,7 +53,7 @@ export const parameters = {
  */
 export const render = createLitRenderer({
   wrapSlots: true, // Wraps a non-default slot in `<span slot="name">`
-  joinArray: true  // Converts array to a comma-separated string
+  joinArrays: true  // Converts array to a comma-separated string
 })
 ```
 <br /><br /><br />
