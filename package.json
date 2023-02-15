@@ -1,23 +1,37 @@
 {
   "name": "cem-plugin-better-lit-types",
-  "version": "0.1.17",
+  "version": "0.2.0",
   "description": "Updates CEM definitions with Typescript Schema",
-  "main": "dist/plugin.js",
+  "main": "dist/index.js",
   "type": "module",
   "exports": {
-    ".": "./dist/index.js",
-    "./plugin": "./dist/plugin.js",
-    "./plugin.d.ts": "./dist/plugin.d.ts",
-    "./storybook": "./dist/storybook.js",
-    "./storybook.d.ts": "./dist/storybook.d.ts"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "storybook": {
+      "import": {
+        "types": "./dist/storybook.d.ts",
+        "default": "./dist/storybook.js"
+      }
+    },
+    "plugin": {
+      "import": {
+        "types": "./dist/plugin.d.ts",
+        "default": "./dist/plugin.js"
+      }
+    }
   },
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "scripts": {
     "analyze": "custom-elements-manifest analyze",
-    "build": "tsc --declaration"
+    "build": "tsc --declaration",
+    "semantic-release": "semantic-release"
   },
   "keywords": [
     "custom-element-manifest",
@@ -40,6 +54,11 @@
   "devDependencies": {
     "@types/node": "^18.11.18",
     "@custom-elements-manifest/analyzer": "^0.6.8",
-    "lit-html": "^2.6.1"
+    "lit-html": "^2.6.1",
+    "semantic-release": "^20.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Uscreen-video/cem-plugin-better-lit-types.git"
   }
 }
