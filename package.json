@@ -1,30 +1,33 @@
 {
   "name": "cem-plugin-better-lit-types",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Updates CEM definitions with Typescript Schema",
-  "main": "dist/index.js",
   "type": "module",
+  "main": "./dist/index.js",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
+      "import": "./dist/index.js"
     },
-    "storybook": {
-      "import": {
-        "types": "./dist/storybook.d.ts",
-        "default": "./dist/storybook.js"
-      }
+    "./storybook": {
+      "import": "./dist/storybook.js"
     },
-    "plugin": {
-      "import": {
-        "types": "./dist/plugin.d.ts",
-        "default": "./dist/plugin.js"
-      }
+    "./plugin": {
+      "import": "./dist/plugin.js"
     }
   },
-  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/index.d.ts"
+      ],
+      "storybook": [
+        "dist/storybook.d.ts"
+      ],
+      "plugin": [
+        "dist/plugin.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist/**/*"
   ],
@@ -54,8 +57,7 @@
   "devDependencies": {
     "@types/node": "^18.11.18",
     "@custom-elements-manifest/analyzer": "^0.6.8",
-    "lit-html": "^2.6.1",
-    "semantic-release": "^20.1.0"
+    "lit-html": "^2.6.1"
   },
   "repository": {
     "type": "git",
