@@ -34,7 +34,8 @@
   "scripts": {
     "analyze": "custom-elements-manifest analyze",
     "build": "tsc --declaration",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "release": "release-it"
   },
   "keywords": [
     "custom-element-manifest",
@@ -55,12 +56,20 @@
     "typescript-json-schema": "^0.55.0"
   },
   "devDependencies": {
-    "@types/node": "^18.11.18",
     "@custom-elements-manifest/analyzer": "^0.6.8",
+    "@types/node": "^18.11.18",
     "lit-html": "^2.6.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Uscreen-video/cem-plugin-better-lit-types.git"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}"
+    },
+    "github": {
+      "release": true
+    }
   }
 }
